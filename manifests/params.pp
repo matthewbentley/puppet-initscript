@@ -23,7 +23,7 @@ class initscript::params {
     if versioncmp($::lsbdistrelease, '8') < 1 {
       $init_style = 'sysv_debian'
     } else {
-      $init_stype = 'systemd'
+      $init_style = 'systemd'
     }
   } elsif $::operatingsystem == 'SLES' {
     $init_style = 'sysv_sles'

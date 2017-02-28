@@ -5,6 +5,9 @@ Wants=basic.target
 After=basic.target network.target <% @depends.each do |v| -%> <%= v %>.service <% end -%>
 
 [Service]
+<% if @oneshot -%>
+Type=oneshot
+<% end -%>
 <% @ulimit.each do |k, v| -%>
 Limit<%= k.upcase %>=<%= v %>
 <% end -%>

@@ -76,6 +76,7 @@ define initscript(
   $before_command = [],
   $ulimit = {},
   $depends = [],
+  $oneshot = false,
 ) {
   validate_array($command)
   validate_array($before_command)

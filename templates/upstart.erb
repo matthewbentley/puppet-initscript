@@ -6,6 +6,10 @@ description "<% @description %>"
 start on (local-filesystems and net-device-up IFACE!=lo <% @depends.each do |v| -%> and starting <%= v %> <% end -%>)
 stop on runlevel [06]
 
+<% if @oneshot -%>
+task
+<% end -%>
+
 <% @ulimit.each do |k, v| -%>
 limit <%= k %> <%= v %> <%= v %>
 <% end -%>

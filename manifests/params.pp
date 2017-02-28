@@ -20,7 +20,11 @@ class initscript::params {
       $init_style = 'systemd'
     }
   } elsif $::operatingsystem == 'Debian' {
-    $init_style = 'sysv_debian'
+    if versioncmp($::lsbdistrelease, '8') < 1 {
+      $init_style = 'sysv_debian'
+    } else {
+      $init_stype = 'systemd'
+    }
   } elsif $::operatingsystem == 'SLES' {
     $init_style = 'sysv_sles'
   } elsif $::operatingsystem == 'Darwin' {

@@ -136,7 +136,7 @@ define initscript(
         content => template('initscript/systemd.erb'),
       } ~>
       exec { 'systemctl-daemon-reload':
-        command => 'systemctl daemon-reload',
+        command => '/bin/systemctl daemon-reload',
       }
     }
     'sysv_redhat' : {
